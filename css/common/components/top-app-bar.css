@@ -1,0 +1,55 @@
+.top {
+    display: contents;
+}
+
+.top-bar {
+    overflow-anchor: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: var(--top-bar-height);
+    padding: 0 calc(var(--gutter) - 12px + 4px);
+    background-color: color-mix(in oklch, var(--surface-container) calc(var(--title-p, 0) * 100%), var(--surface));
+}
+
+.top-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    max-width: calc(var(--content-max) + 24px);
+    margin: 0 auto;
+}
+
+.top-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: auto;
+    position: relative;
+}
+
+.top-title-large {
+    overflow-anchor: none;
+    --title-scale: calc(1 - var(--title-p, 0) * (1 - var(--title-scale-end, 0.5)));
+    position: sticky;
+    top: var(--title-stick-top, 0px);
+    z-index: 101;
+    width: calc(100% - (var(--gutter) + 16px) * 2);
+    max-width: calc(var(--content-max) + var(--gutter) * 2 - 64px);
+    margin: 36px auto 28px;
+    font-size: clamp(2rem, 1.6rem + 1.6vw, 2.8125rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transform-origin: left center;
+    transform: translateX(calc(var(--title-dx, 0px) * var(--title-p, 0))) scale(var(--title-scale));
+    pointer-events: none;
+    will-change: transform;
+}

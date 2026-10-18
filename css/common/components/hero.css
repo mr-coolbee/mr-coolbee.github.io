@@ -1,0 +1,105 @@
+.hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+    min-height: 280px;
+    padding: 40px 40px 40px 36px;
+    border-radius: var(--shape-xl);
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    overflow: hidden;
+    transition:
+        background-color var(--duration-long) var(--ease-emphasized),
+        color var(--duration-long) var(--ease-emphasized);
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 30ch;
+}
+
+.hero-name {
+    font-size: clamp(2.5rem, 1.9rem + 2.6vw, 3.5625rem);
+    font-weight: 450;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    font-variation-settings: "ROND" 100;
+}
+
+.hero-note {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-wrap: pretty;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.hero-art {
+    position: relative;
+    width: clamp(132px, 22vw, 200px);
+    aspect-ratio: 1;
+    margin-right: 8px;
+}
+
+.shape-cookie {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background-color: var(--primary);
+    color: var(--on-primary);
+    -webkit-mask: url(/web-assets/common/shapes/cookie-9.svg) center / contain no-repeat;
+    mask: url(/web-assets/common/shapes/cookie-9.svg) center / contain no-repeat;
+    transform: rotate(var(--cookie-turn, 0deg));
+    transition:
+        transform 900ms var(--ease-emphasized),
+        background-color var(--duration-long) var(--ease-emphasized);
+}
+
+.shape-cookie-label {
+    font-size: clamp(3.5rem, 2.4rem + 4vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    font-variation-settings: "ROND" 100;
+    transform: rotate(calc(var(--cookie-turn, 0deg) * -1));
+    transition: transform 900ms var(--ease-emphasized);
+}
+
+.shape-pill {
+    position: absolute;
+    right: -10%;
+    bottom: -4%;
+    width: 40%;
+    aspect-ratio: 1;
+    border-radius: var(--shape-full);
+    background-color: var(--tertiary-container);
+    border: 6px solid var(--primary-container);
+    transition:
+        background-color var(--duration-long) var(--ease-emphasized),
+        border-color var(--duration-long) var(--ease-emphasized);
+}
+
+@media (max-width: 599px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        padding: 28px 24px 28px;
+        gap: 20px;
+    }
+
+    .hero-art {
+        grid-row: 1;
+        width: 120px;
+        margin: 0;
+    }
+}

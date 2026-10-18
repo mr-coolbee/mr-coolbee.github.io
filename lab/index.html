@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#fafafa">
+    <meta name="robots" content="noindex">
+
+    <title>Lab - Coolbee</title>
+    <link rel="icon" type="image/svg+xml" href="/web-assets/common/icons/favicon.svg">
+    <link rel="preload" href="/web-assets/common/fonts/google-sans-flex.woff2" as="font" type="font/woff2" crossorigin>
+    <script src="/js/common/theme-init.js"></script>
+    <link rel="stylesheet" href="/css/common/main.css">
+    <link rel="stylesheet" href="/css/common/components/button.css">
+    <link rel="stylesheet" href="/css/common/components/top-app-bar.css">
+    <link rel="stylesheet" href="/css/common/components/list.css">
+    <link rel="stylesheet" href="/css/common/components/hero.css">
+    <link rel="stylesheet" href="/css/common/components/prose.css">
+    <link rel="stylesheet" href="/css/common/components/form.css">
+    <link rel="stylesheet" href="/css/common/components/page-bg.css">
+    <link rel="stylesheet" href="/css/lab/main.css">
+    <script type="module" src="/js/lab/main.js"></script>
+</head>
+<body>
+    <header class="top">
+        <div class="top-bar">
+            <div class="top-bar-inner">
+                <a class="icon-btn" href="/" aria-label="Back to home" title="Back to home"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+                <div class="top-actions">
+                    <button class="icon-btn" type="button" id="themeToggle" aria-label="Toggle light or dark theme" title="Toggle light or dark theme">
+                        <svg class="icon theme-icon-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+                        <svg class="icon theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <h1 class="top-title-large">Lab</h1>
+    </header>
+    <main class="middle">
+        <section class="section" aria-labelledby="t-env">
+            <h2 class="section-title" id="t-env">Environment</h2>
+            <dl class="readout" id="envReadout"></dl>
+        </section>
+
+        <section class="section" aria-labelledby="t-bg">
+            <h2 class="section-title" id="t-bg">Background</h2>
+            <div class="lab-form lab-bg-controls">
+                <label class="switch"><input type="checkbox" role="switch" id="bgToggle">Enable background</label>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-color">
+            <h2 class="section-title" id="t-color">Color token</h2>
+            <div class="swatch-grid" id="tokenGrid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="t-type">
+            <h2 class="section-title" id="t-type">Fonts</h2>
+            <div class="type-specimen">
+                <p style="font-size:3.5625rem;line-height:1.12;letter-spacing:-0.025em">Display 57</p>
+                <p style="font-size:2.8125rem;line-height:1.15">Headline 45 title</p>
+                <p style="font-size:2rem;line-height:1.25">Headline 32 title</p>
+                <p style="font-size:1.5rem;line-height:1.33">Title 24 title</p>
+                <p style="font-size:1.375rem;line-height:1.27">Title 22 title</p>
+                <p style="font-size:1rem;line-height:1.5">Body 16 paragraph</p>
+                <p style="font-size:0.875rem;line-height:1.43">Body 14 paragraph</p>
+                <p style="font-size:0.875rem;font-weight:500">Label 14 medium tag</p>
+                <p style="font-size:0.75rem;font-weight:500">Label 12 medium tag</p>
+                <p style="font-family:var(--font-family-mono);font-size:0.875rem">Mono 14 ui-monospace</p>
+            </div>
+            <div class="type-specimen">
+                <p>Font weight: <span style="font-weight:300">300</span> <span style="font-weight:400">400</span> <span style="font-weight:500">500</span> <span style="font-weight:600">600</span> <span style="font-weight:700">700</span> <span style="font-weight:900">900</span></p>
+                <p>Roundness axis ROND: <span style="font-variation-settings:'ROND' 0">Coolbee 0</span> <span style="font-variation-settings:'ROND' 100">Coolbee 100</span></p>
+                <p>Tabular numbers: <span style="font-variant-numeric:tabular-nums">1111 / 8888</span></p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-shape">
+            <h2 class="section-title" id="t-shape">Shape and elevation</h2>
+            <div class="chip-row">
+                <div class="demo-box" style="border-radius:var(--shape-xs)">xs 4</div>
+                <div class="demo-box" style="border-radius:var(--shape-sm)">sm 8</div>
+                <div class="demo-box" style="border-radius:var(--shape-md)">md 12</div>
+                <div class="demo-box" style="border-radius:var(--shape-lg)">lg 16</div>
+                <div class="demo-box" style="border-radius:var(--shape-xl)">xl 28</div>
+                <div class="demo-box" style="border-radius:var(--shape-full)">full</div>
+            </div>
+            <div class="chip-row">
+                <div class="demo-box elev" style="box-shadow:var(--elevation-1)">elev 1</div>
+                <div class="demo-box elev" style="box-shadow:var(--elevation-2)">elev 2</div>
+                <div class="demo-box elev" style="box-shadow:var(--elevation-3)">elev 3</div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-motion">
+            <h2 class="section-title" id="t-motion">Motion</h2>
+            <div class="motion-rows" id="motionRows"></div>
+            <div class="lab-controls"><button class="btn btn-tonal" type="button" id="motionPlay">Play</button></div>
+        </section>
+
+        <section class="section" aria-labelledby="t-btn">
+            <h2 class="section-title" id="t-btn">Buttons</h2>
+            <div class="chip-row lab-controls">
+                <button class="btn btn-filled" type="button">Filled</button>
+                <button class="btn btn-filled" type="button"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Icon</button>
+                <button class="btn btn-tonal" type="button">Tonal</button>
+                <button class="btn btn-outlined" type="button">Outlined</button>
+                <button class="btn btn-text" type="button">Text</button>
+            </div>
+            <div class="chip-row lab-controls">
+                <button class="btn btn-filled" type="button" disabled>Filled</button>
+                <button class="btn btn-tonal" type="button" disabled>Tonal</button>
+                <button class="btn btn-outlined" type="button" disabled>Outlined</button>
+                <button class="btn btn-text" type="button" disabled>Text</button>
+            </div>
+            <div class="chip-row lab-controls">
+                <a class="btn btn-filled" href="/"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20h-5v-6H9v6H4Z"/></svg>Link</a>
+                <button class="icon-btn" type="button" aria-label="Add"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+                <button class="icon-btn" type="button" aria-label="Expand" aria-expanded="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+                <button class="icon-btn" type="button" aria-label="Disabled" disabled><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-list">
+            <h2 class="section-title" id="t-list">List</h2>
+            <ul class="list">
+                <li><a class="list-item" href="#t-list"><span class="list-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/></svg></span><span class="list-text"><span class="list-headline">Link</span><span class="list-supporting">supporting</span></span><svg class="icon list-trailing" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+                <li><a class="list-item" href="#t-list"><span class="list-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/></svg></span><span class="list-text"><span class="list-headline">A very long headline aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span></span><svg class="icon list-trailing" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a></li>
+                <li><div class="list-item"><span class="list-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/></svg></span><span class="list-text"><span class="list-headline">Non-interactive item</span></span></div></li>
+                <li><div class="list-item" data-empty><span class="list-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><span class="list-text"><span class="list-headline">Empty</span></span></div></li>
+            </ul>
+        </section>
+
+        <section class="section" aria-labelledby="t-hero">
+            <h2 class="section-title" id="t-hero">Hero</h2>
+            <div class="hero">
+                <div class="hero-text">
+                    <h2 class="hero-name">Hero</h2>
+                    <p class="hero-note">Where is the HERO?</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-filled" type="button" id="spinCookie">Spin</button>
+                        <button class="btn btn-outlined" type="button">Secondary action</button>
+                    </div>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                    <div class="shape-cookie"><span class="shape-cookie-label">?</span></div>
+                    <div class="shape-pill"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="t-form">
+            <h2 class="section-title" id="t-form">Form</h2>
+            <form class="lab-form" onsubmit="return false">
+                <label class="field"><input type="text" placeholder=" "><span>Text field</span></label>
+                <label class="field"><input type="text" placeholder=" " value="Value"><span>Filled</span></label>
+                <div><label class="field" data-invalid><input type="text" placeholder=" " value="Value"><span>Error</span></label><span class="field-hint">Oops!  There's an error!</span></div>
+                <label class="field"><input type="text" placeholder=" " disabled><span>Disabled</span></label>
+                <label class="field"><textarea placeholder=" "></textarea><span>Multiline</span></label>
+                <label class="field"><select><option>Option one</option><option>Option two</option></select><span>Select</span></label>
+                <div class="chip-row">
+                    <label class="switch"><input type="checkbox" role="switch" checked>On</label>
+                    <label class="switch"><input type="checkbox" role="switch">Off</label>
+                    <label class="switch"><input type="checkbox" role="switch" disabled>Disabled</label>
+                </div>
+                <div class="chip-row">
+                    <label class="check"><input type="checkbox" checked>Checked</label>
+                    <label class="check"><input type="checkbox">Unchecked</label>
+                    <label class="check"><input type="checkbox" disabled>Disabled</label>
+                </div>
+                <div class="chips" id="chipDemo">
+                    <button class="chip" type="button" aria-pressed="true">Selected</button>
+                    <button class="chip" type="button" aria-pressed="false">Unselected</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="section" aria-labelledby="t-prose">
+            <h2 class="section-title" id="t-prose">Prose</h2>
+            <article class="prose">
+                <h2>h2 heading</h2>
+                <h3>h3 heading</h3>
+                <h4>h4 heading</h4>
+                <h5>h5 heading</h5>
+                <h6>h6 heading</h6>
+                <p><strong>strong</strong>, <em>em</em>, <mark>mark</mark>, <abbr title="abbreviation">abbr</abbr>, <code>code</code>, <kbd>Alt + F4</kbd>, <samp>samp</samp>, H<sub>2</sub>O, x<sup>2</sup>, <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">link</a></p>
+                <ul><li>Unordered one</li><li>Unordered two</li></ul>
+                <ol><li>Ordered one</li><li>Ordered two</li></ol>
+                <blockquote><p>海內存知己，天涯若比鄰。<cite>王勃</cite></p></blockquote>
+                <hr>
+                <pre><code>const hello = "world";
+console.log(hello);</code></pre>
+                <div class="table-scroll" tabindex="0" role="region" aria-label="Sample table">
+                    <table>
+                        <caption>caption</caption>
+                        <thead><tr><th scope="col">col0</th><th scope="col">col1</th><th scope="col">col2</th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">row1</th><td>1111</td><td>2</td></tr>
+                            <tr><th scope="row">row2</th><td>8888</td><td>4</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <details><summary>details</summary><p>Close by default</p></details>
+                <details open><summary>details open</summary><p>Open by default</p></details>
+            </article>
+        </section>
+    </main>
+    <footer class="bottom">
+        <p>Coolbee・2026・版權沒有・翻印不究</p>
+    </footer>
+</body>
+</html>

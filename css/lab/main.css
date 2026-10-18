@@ -1,0 +1,150 @@
+.lab-note {
+    padding: 0 16px;
+    text-shadow: 0 0 12px color-mix(in oklch, var(--surface) 80%, transparent);
+    font-size: 0.875rem;
+    color: var(--on-surface-variant);
+}
+
+.readout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.readout > div {
+    padding: 12px 16px;
+    background-color: var(--surface-container);
+}
+
+.readout dt {
+    font-size: 0.75rem;
+    color: var(--on-surface-variant);
+}
+
+.readout dd {
+    font-family: var(--font-family-mono);
+    font-size: 0.875rem;
+    overflow-wrap: anywhere;
+}
+
+.readout [data-state="on"] dd {
+    font-weight: 700;
+}
+
+.swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+}
+
+.token {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 88px;
+    padding: 10px 12px;
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--shape-md);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.token b {
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+.token small {
+    font-family: var(--font-family-mono);
+    font-size: 0.6875rem;
+    opacity: 0.85;
+}
+
+.type-specimen {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 24px;
+    border-radius: 20px;
+    background-color: var(--surface-container);
+    overflow-wrap: anywhere;
+}
+
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.demo-box {
+    display: grid;
+    place-items: center;
+    width: 88px;
+    height: 72px;
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+    font-size: 0.75rem;
+}
+
+.demo-box.elev {
+    background-color: var(--surface-container-low);
+    color: var(--on-surface);
+}
+
+.motion-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.motion-row {
+    position: relative;
+    height: 32px;
+    border-radius: var(--shape-full);
+    background-color: var(--surface-container);
+}
+
+.motion-row span {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    z-index: 1;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: var(--on-surface-variant);
+}
+
+.motion-row i {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--shape-full);
+    background-color: var(--primary);
+    transition-property: transform;
+}
+
+.motion-row i[data-go] {
+    transform: translateX(var(--travel, 200px));
+}
+
+.lab-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px 16px 0;
+    max-width: 480px;
+}
+
+.lab-controls {
+    padding: 0 16px;
+}
+
+.lab-bg-controls {
+    padding-top: 4px;
+}

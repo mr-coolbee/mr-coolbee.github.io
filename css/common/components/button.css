@@ -1,0 +1,162 @@
+.icon-btn,
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    isolation: isolate;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.icon-btn::before,
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-color: currentColor;
+    opacity: 0;
+    transition: opacity var(--duration-short) linear;
+}
+
+@media (hover: hover) {
+    .icon-btn:hover::before,
+    .btn:hover::before {
+        opacity: 0.08;
+    }
+}
+
+.icon-btn:focus-visible::before,
+.btn:focus-visible::before {
+    opacity: 0.1;
+}
+
+.icon-btn:active::before,
+.btn:active::before {
+    opacity: 0;
+}
+
+.icon-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--shape-full);
+    color: var(--on-surface-variant);
+}
+
+.icon-btn[aria-expanded="true"] {
+    color: var(--on-secondary-container);
+}
+
+.icon-btn[aria-expanded="true"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    border-radius: inherit;
+    background-color: var(--secondary-container);
+}
+
+.btn {
+    gap: 8px;
+    height: 40px;
+    padding: 0 24px;
+    border-radius: var(--shape-full);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    transition:
+        border-radius var(--duration-medium) var(--ease-emphasized),
+        box-shadow var(--duration-short) linear;
+}
+
+.btn:active {
+    border-radius: var(--shape-md);
+}
+
+.btn svg.icon {
+    width: 18px;
+    height: 18px;
+    margin-left: -8px;
+}
+
+.btn-filled {
+    background-color: var(--primary);
+    color: var(--on-primary);
+}
+
+@media (hover: hover) {
+    .btn-filled:hover {
+        box-shadow: 0 1px 2px color-mix(in oklch, var(--shadow) 30%, transparent), 0 1px 3px 1px color-mix(in oklch, var(--shadow) 15%, transparent);
+    }
+}
+
+.btn-tonal {
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+}
+
+.ripple {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    background-color: currentColor;
+    pointer-events: none;
+    opacity: 0.12;
+    transform: scale(0);
+    animation: ripple-grow 450ms var(--ease-emphasized-decelerate) forwards;
+}
+
+.ripple[data-releasing] {
+    animation:
+        ripple-grow 450ms var(--ease-emphasized-decelerate) forwards,
+        ripple-fade 300ms linear forwards;
+}
+
+@keyframes ripple-grow {
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes ripple-fade {
+    to {
+        opacity: 0;
+    }
+}
+
+html[data-theme="light"] .theme-icon-light,
+html[data-theme="dark"] .theme-icon-dark {
+    display: none;
+}
+
+.btn:disabled,
+.icon-btn:disabled {
+    cursor: default;
+    pointer-events: none;
+    color: color-mix(in oklch, var(--on-surface) 38%, transparent);
+}
+
+.btn-filled:disabled,
+.btn-tonal:disabled {
+    background-color: color-mix(in oklch, var(--on-surface) 12%, transparent);
+}
+
+.btn-outlined {
+    border: 1px solid var(--outline);
+    color: var(--primary);
+}
+
+.btn-text {
+    padding: 0 12px;
+    color: var(--primary);
+}

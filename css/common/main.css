@@ -1,0 +1,275 @@
+@font-face {
+    font-family: "Google Sans Flex";
+    font-style: normal;
+    font-weight: 1 1000;
+    font-display: swap;
+    src: url(/web-assets/common/fonts/google-sans-flex.woff2) format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+    --font-family-base: "Google Sans Flex", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+    --font-family-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+    --ease-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+    --ease-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+    --duration-short: 150ms;
+    --duration-medium: 300ms;
+    --duration-long: 500ms;
+
+    --shape-xs: 4px;
+    --shape-sm: 8px;
+    --shape-md: 12px;
+    --shape-lg: 16px;
+    --shape-xl: 28px;
+    --shape-full: 999px;
+
+    --elevation-1: 0 1px 2px color-mix(in oklch, var(--shadow) 30%, transparent), 0 1px 3px 1px color-mix(in oklch, var(--shadow) 15%, transparent);
+    --elevation-2: 0 1px 2px color-mix(in oklch, var(--shadow) 30%, transparent), 0 2px 6px 2px color-mix(in oklch, var(--shadow) 15%, transparent);
+    --elevation-3: 0 1px 3px color-mix(in oklch, var(--shadow) 30%, transparent), 0 4px 8px 3px color-mix(in oklch, var(--shadow) 15%, transparent);
+
+    --top-bar-height: 64px;
+    --content-max: 840px;
+    --gutter: 16px;
+
+    color-scheme: light;
+
+    --primary: oklch(0.25 0 0);
+    --on-primary: oklch(1 0 0);
+    --primary-container: oklch(0.90 0 0);
+    --on-primary-container: oklch(0.20 0 0);
+
+    --secondary: oklch(0.45 0 0);
+    --on-secondary: oklch(1 0 0);
+    --secondary-container: oklch(0.92 0 0);
+    --on-secondary-container: oklch(0.22 0 0);
+
+    --tertiary: oklch(0.40 0 0);
+    --on-tertiary: oklch(1 0 0);
+    --tertiary-container: oklch(0.82 0 0);
+    --on-tertiary-container: oklch(0.20 0 0);
+
+    --error: oklch(0.50 0.19 27);
+    --on-error: oklch(1 0 0);
+    --error-container: oklch(0.92 0.05 27);
+    --on-error-container: oklch(0.30 0.12 27);
+
+    --surface: oklch(0.985 0 0);
+    --surface-dim: oklch(0.88 0 0);
+    --surface-container-lowest: oklch(1 0 0);
+    --surface-container-low: oklch(0.965 0 0);
+    --surface-container: oklch(0.945 0 0);
+    --surface-container-high: oklch(0.925 0 0);
+    --surface-container-highest: oklch(0.905 0 0);
+    --on-surface: oklch(0.20 0 0);
+    --on-surface-variant: oklch(0.42 0 0);
+    --outline: oklch(0.58 0 0);
+    --outline-variant: oklch(0.82 0 0);
+    --inverse-surface: oklch(0.30 0 0);
+    --inverse-on-surface: oklch(0.95 0 0);
+    --scrim: oklch(0 0 0);
+    --shadow: oklch(0 0 0);
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --primary: oklch(0.92 0 0);
+    --on-primary: oklch(0.20 0 0);
+    --primary-container: oklch(0.36 0 0);
+    --on-primary-container: oklch(0.92 0 0);
+
+    --secondary: oklch(0.80 0 0);
+    --on-secondary: oklch(0.25 0 0);
+    --secondary-container: oklch(0.32 0 0);
+    --on-secondary-container: oklch(0.92 0 0);
+
+    --tertiary: oklch(0.75 0 0);
+    --on-tertiary: oklch(0.25 0 0);
+    --tertiary-container: oklch(0.42 0 0);
+    --on-tertiary-container: oklch(0.92 0 0);
+
+    --error: oklch(0.78 0.12 27);
+    --on-error: oklch(0.28 0.12 27);
+    --error-container: oklch(0.38 0.12 27);
+    --on-error-container: oklch(0.90 0.05 27);
+
+    --surface: oklch(0.18 0 0);
+    --surface-dim: oklch(0.18 0 0);
+    --surface-container-lowest: oklch(0.15 0 0);
+    --surface-container-low: oklch(0.21 0 0);
+    --surface-container: oklch(0.235 0 0);
+    --surface-container-high: oklch(0.27 0 0);
+    --surface-container-highest: oklch(0.31 0 0);
+    --on-surface: oklch(0.92 0 0);
+    --on-surface-variant: oklch(0.80 0 0);
+    --outline: oklch(0.62 0 0);
+    --outline-variant: oklch(0.38 0 0);
+    --inverse-surface: oklch(0.92 0 0);
+    --inverse-on-surface: oklch(0.28 0 0);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-padding-top: calc(var(--top-bar-height) + 16px);
+    background-color: var(--surface);
+    scrollbar-color: var(--outline-variant) transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--surface);
+    color: var(--on-surface);
+    font-family: var(--font-family-base);
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+}
+
+:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+a {
+    color: var(--primary);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.2em;
+}
+
+svg.icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.middle {
+    flex: 1;
+    width: 100%;
+    max-width: calc(var(--content-max) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: 8px var(--gutter) 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-title {
+    align-self: flex-start;
+    margin-block: -4px;
+    padding: 4px 16px;
+    border-radius: var(--shape-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: 0.01em;
+    color: var(--primary);
+}
+
+.bottom {
+    width: 100%;
+    max-width: calc(var(--content-max) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: 24px calc(var(--gutter) + 16px) 32px;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--on-surface-variant);
+}
+
+html[data-theme-soft],
+html[data-theme-soft] *,
+html[data-theme-soft] *::before,
+html[data-theme-soft] *::after,
+html[data-theme-soft]::before,
+html[data-theme-soft]::after {
+    transition:
+        background-color 350ms ease,
+        color 350ms ease,
+        border-color 350ms ease,
+        fill 350ms ease,
+        stroke 350ms ease !important;
+}
+
+html[data-theme-switching] *,
+html[data-theme-switching] *::before,
+html[data-theme-switching] *::after {
+    transition: none !important;
+}
+
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+    animation: theme-reveal 700ms var(--ease-emphasized-decelerate);
+}
+
+@keyframes theme-reveal {
+    from {
+        clip-path: circle(0 at var(--reveal-x, 50%) var(--reveal-y, 0));
+    }
+
+    to {
+        clip-path: circle(var(--reveal-r, 150vmax) at var(--reveal-x, 50%) var(--reveal-y, 0));
+    }
+}
+
+@media (min-width: 600px) {
+    :root {
+        --gutter: 24px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after,
+    ::view-transition-new(root) {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+    }
+}

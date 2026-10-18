@@ -1,0 +1,97 @@
+:root {
+    --page-bg-scrim: 80%;
+    --page-bg-blur: 0px;
+    --glass-blur: 15px;
+    --glass-alpha: 40%;
+    --glass-saturate: 1.35;
+    --glass-tint: var(--surface-container-high);
+}
+
+html[data-page-bg] {
+    background-color: var(--surface);
+}
+
+html[data-page-bg]::before,
+html[data-page-bg]::after {
+    content: "";
+    position: fixed;
+    inset: calc(var(--page-bg-blur) * -2);
+    z-index: -1;
+    pointer-events: none;
+}
+
+html[data-page-bg]::before {
+    background: var(--page-bg-image, none) center / cover no-repeat;
+    filter: blur(var(--page-bg-blur));
+}
+
+html[data-page-bg]::after {
+    inset: 0;
+    background-color: color-mix(in oklch, var(--surface) var(--page-bg-scrim), transparent);
+}
+
+html[data-page-bg] body {
+    background-color: transparent;
+}
+
+html[data-page-bg] .top-bar {
+    background-color: color-mix(in oklch, var(--glass-tint) calc(var(--title-p, 0) * var(--glass-alpha)), transparent);
+    -webkit-backdrop-filter: blur(calc(var(--title-p, 0) * var(--glass-blur))) saturate(var(--glass-saturate));
+    backdrop-filter: blur(calc(var(--title-p, 0) * var(--glass-blur))) saturate(var(--glass-saturate));
+}
+
+html[data-page-bg] .list-item,
+html[data-page-bg] .type-specimen,
+html[data-page-bg] .readout > div,
+html[data-page-bg] .prose blockquote,
+html[data-page-bg] .prose details,
+html[data-page-bg] .prose pre,
+html[data-page-bg] .table-scroll,
+html[data-page-bg] .field input,
+html[data-page-bg] .field textarea,
+html[data-page-bg] .field select,
+html[data-page-bg] .demo-box,
+html[data-page-bg] .drop,
+html[data-page-bg] .job {
+    background-color: color-mix(in oklch, var(--glass-tint) var(--glass-alpha), transparent);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-page-bg] .hero {
+    background-color: color-mix(in oklch, var(--primary-container) var(--glass-alpha), var(--glass-tint));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-page-bg] .field > span {
+    border-radius: var(--shape-xs);
+    background-color: color-mix(in oklch, var(--surface) var(--glass-alpha), transparent);
+}
+
+html[data-page-bg] .list-item[data-empty] .list-icon {
+    background-color: color-mix(in oklch, var(--surface-container-highest) 80%, transparent);
+}
+
+html[data-page-bg] .section-title {
+    background-color: color-mix(in oklch, var(--glass-tint) var(--glass-alpha), transparent);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+html[data-page-bg] .bottom {
+    color: var(--on-surface);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    :root {
+        --glass-alpha: 92%;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    :root {
+        --glass-alpha: 100%;
+        --glass-blur: 0px;
+    }
+}
