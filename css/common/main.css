@@ -236,7 +236,6 @@ html[data-theme-switching] *::after {
     transition: none !important;
 }
 
-
 ::view-transition-old(root),
 ::view-transition-new(root) {
     animation: none;
