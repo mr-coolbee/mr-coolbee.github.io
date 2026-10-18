@@ -3,7 +3,7 @@ import {
     Mp4OutputFormat, WebMOutputFormat, Quality, canEncodeVideo
 } from '/web-assets/vendor/mediabunny/mediabunny.min.mjs';
 
-export const VIDEO_PRESETS = { 'mp4-avc': { label: 'MP4 · H.264（相容性最好）', container: 'mp4', codec: 'avc' }, 'mp4-hevc': { label: 'MP4 · H.265（較小，部分瀏覽器不支援）', container: 'mp4', codec: 'hevc' }, 'webm-vp9': { label: 'WebM · VP9', container: 'webm', codec: 'vp9' }, 'webm-av1': { label: 'WebM · AV1（最小，較慢）', container: 'webm', codec: 'av1' }};
+export const VIDEO_PRESETS = { 'mp4-avc': { label: 'MP4・H.264（相容性最好）', container: 'mp4', codec: 'avc' }, 'mp4-hevc': { label: 'MP4・H.265（較小，部分瀏覽器不支援）', container: 'mp4', codec: 'hevc' }, 'webm-vp9': { label: 'WebM・VP9', container: 'webm', codec: 'vp9' }, 'webm-av1': { label: 'WebM・AV1（最小，較慢）', container: 'webm', codec: 'av1' }};
 
 export const videoSupported = () => typeof VideoEncoder !== 'undefined' && typeof VideoDecoder !== 'undefined';
 
